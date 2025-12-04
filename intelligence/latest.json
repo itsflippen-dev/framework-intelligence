@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema#",
-  "version": "2.0.0",
-  "lastUpdated": "2025-12-03T18:58:00Z",
+  "version": "3.0.0",
+  "lastUpdated": "2025-12-03T21:30:00Z",
   "description": "Comprehensive framework intelligence cache for AI agents - current versions, patterns, and deprecations",
   "source": "local",
   "maintainers": ["itsflippen-dev/framework-intelligence", "digital-1-group/framework-intelligence"],
@@ -357,6 +357,133 @@
         "currentVersion": "1.5.0",
         "packageManager": "npm",
         "configFiles": ["vite.config.ts"]
+      },
+      "remix": {
+        "ecosystem": "remix",
+        "currentVersion": "2.8.0",
+        "packageManager": "npm",
+        "configFiles": ["remix.config.js", "vite.config.ts"],
+        "currentPatterns": {
+          "loader": {
+            "pattern": "export async function loader({ request }: LoaderFunctionArgs) {}",
+            "description": "Remix loader function"
+          },
+          "action": {
+            "pattern": "export async function action({ request }: ActionFunctionArgs) {}",
+            "description": "Remix action function"
+          },
+          "vite": {
+            "pattern": "import { vitePlugin as remix } from '@remix-run/dev'",
+            "description": "Remix Vite plugin"
+          }
+        },
+        "deprecatedPatterns": {
+          "esbuild": {
+            "pattern": "remix.config.js with esbuild",
+            "replacement": "vite.config.ts with Remix plugin",
+            "severity": "warning",
+            "deprecatedSince": "2024-02-01"
+          }
+        }
+      },
+      "solidStart": {
+        "ecosystem": "solid",
+        "currentVersion": "1.0.0",
+        "packageManager": "npm",
+        "configFiles": ["app.config.ts"],
+        "currentPatterns": {
+          "server": {
+            "pattern": "'use server' directive for server functions",
+            "description": "SolidStart server functions"
+          },
+          "route": {
+            "pattern": "export const route = { preload: () => {} }",
+            "description": "Route configuration"
+          }
+        }
+      },
+      "fresh": {
+        "ecosystem": "deno",
+        "currentVersion": "1.6.0",
+        "configFiles": ["deno.json", "fresh.config.ts"],
+        "currentPatterns": {
+          "island": {
+            "pattern": "islands/ directory for interactive components",
+            "description": "Fresh islands architecture"
+          },
+          "handler": {
+            "pattern": "export const handler: Handlers = { GET(req, ctx) {} }",
+            "description": "Route handlers"
+          }
+        }
+      },
+      "analog": {
+        "ecosystem": "angular",
+        "currentVersion": "1.2.0",
+        "packageManager": "npm",
+        "configFiles": ["vite.config.ts"],
+        "currentPatterns": {
+          "fileRoutes": {
+            "pattern": "src/app/pages/ for file-based routing",
+            "description": "Analog file-based routing"
+          }
+        }
+      },
+      "redwoodjs": {
+        "ecosystem": "redwood",
+        "currentVersion": "7.4.0",
+        "packageManager": "yarn",
+        "configFiles": ["redwood.toml"],
+        "currentPatterns": {
+          "cells": {
+            "pattern": "export const QUERY = gql``; export const Success = () => {}",
+            "description": "Redwood Cells pattern"
+          },
+          "services": {
+            "pattern": "api/src/services/ for business logic",
+            "description": "Services layer"
+          }
+        }
+      },
+      "blitzjs": {
+        "ecosystem": "blitz",
+        "currentVersion": "2.0.0",
+        "packageManager": "npm",
+        "configFiles": ["blitz.config.ts"],
+        "currentPatterns": {
+          "rpc": {
+            "pattern": "import { invoke } from '@blitzjs/rpc'",
+            "description": "Blitz RPC calls"
+          }
+        }
+      },
+      "t3Stack": {
+        "ecosystem": "t3",
+        "currentVersion": "latest",
+        "packageManager": "npm",
+        "description": "Type-safe full-stack pattern",
+        "currentPatterns": {
+          "stack": {
+            "pattern": "Next.js + tRPC + Prisma + Tailwind + NextAuth",
+            "description": "T3 Stack composition"
+          },
+          "create": {
+            "pattern": "npx create-t3-app@latest",
+            "description": "Create T3 app"
+          }
+        }
+      },
+      "tanstackStart": {
+        "ecosystem": "tanstack",
+        "currentVersion": "1.0.0",
+        "packageManager": "npm",
+        "configFiles": ["app.config.ts"],
+        "currentPatterns": {
+          "router": {
+            "pattern": "import { createFileRoute } from '@tanstack/react-router'",
+            "description": "TanStack Start file routes"
+          }
+        }
       }
     },
 
@@ -671,6 +798,74 @@
             "description": "Use Router for Axum routing"
           }
         }
+      },
+      "elysia": {
+        "ecosystem": "bun",
+        "currentVersion": "1.0.0",
+        "packageManager": "bun",
+        "currentPatterns": {
+          "app": {
+            "pattern": "new Elysia().get('/', () => 'Hello')",
+            "description": "Elysia route definition"
+          },
+          "plugins": {
+            "pattern": ".use(swagger()).use(cors())",
+            "description": "Elysia plugin chaining"
+          }
+        }
+      },
+      "nitro": {
+        "ecosystem": "nuxt",
+        "currentVersion": "2.9.0",
+        "packageManager": "npm",
+        "configFiles": ["nitro.config.ts"],
+        "currentPatterns": {
+          "handler": {
+            "pattern": "export default defineEventHandler((event) => {})",
+            "description": "Nitro event handler"
+          },
+          "routes": {
+            "pattern": "server/api/ and server/routes/ directories",
+            "description": "Nitro file-based routing"
+          }
+        }
+      },
+      "h3": {
+        "ecosystem": "nuxt",
+        "currentVersion": "1.11.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "handler": {
+            "pattern": "import { defineEventHandler, getQuery } from 'h3'",
+            "description": "h3 utilities"
+          }
+        }
+      },
+      "effect": {
+        "ecosystem": "effect",
+        "currentVersion": "3.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "core": {
+            "pattern": "import { Effect, pipe } from 'effect'",
+            "description": "Effect core imports"
+          },
+          "services": {
+            "pattern": "Effect.gen(function* () { const svc = yield* MyService })",
+            "description": "Effect generators"
+          }
+        }
+      },
+      "hattip": {
+        "ecosystem": "hattip",
+        "currentVersion": "0.0.33",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "handler": {
+            "pattern": "import { createRouter } from '@hattip/router'",
+            "description": "Hattip router"
+          }
+        }
       }
     },
 
@@ -745,6 +940,94 @@
           "client": {
             "pattern": "import { createClient } from '@supabase/supabase-js'",
             "description": "Create Supabase client"
+          }
+        }
+      },
+      "turso": {
+        "ecosystem": "turso",
+        "currentVersion": "0.6.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import { createClient } from '@libsql/client'",
+            "description": "Turso/libSQL client"
+          },
+          "embedded": {
+            "pattern": "createClient({ url: 'file:local.db', syncUrl: env.TURSO_URL })",
+            "description": "Embedded replicas"
+          }
+        }
+      },
+      "planetscale": {
+        "ecosystem": "planetscale",
+        "currentVersion": "1.16.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import { connect } from '@planetscale/database'",
+            "description": "PlanetScale serverless driver"
+          }
+        }
+      },
+      "neon": {
+        "ecosystem": "neon",
+        "currentVersion": "0.9.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "serverless": {
+            "pattern": "import { neon } from '@neondatabase/serverless'",
+            "description": "Neon serverless driver"
+          },
+          "pool": {
+            "pattern": "import { Pool } from '@neondatabase/serverless'",
+            "description": "Neon connection pool"
+          }
+        }
+      },
+      "xata": {
+        "ecosystem": "xata",
+        "currentVersion": "0.29.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import { XataClient } from './xata'",
+            "description": "Generated Xata client"
+          }
+        }
+      },
+      "d1": {
+        "ecosystem": "cloudflare",
+        "currentVersion": "latest",
+        "currentPatterns": {
+          "binding": {
+            "pattern": "env.DB.prepare('SELECT * FROM users').all()",
+            "description": "D1 prepared statements"
+          }
+        }
+      },
+      "kysely": {
+        "ecosystem": "kysely",
+        "currentVersion": "0.27.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "query": {
+            "pattern": "db.selectFrom('users').selectAll().execute()",
+            "description": "Kysely type-safe queries"
+          },
+          "schema": {
+            "pattern": "interface Database { users: UsersTable }",
+            "description": "Kysely schema definition"
+          }
+        }
+      },
+      "electricSQL": {
+        "ecosystem": "electric",
+        "currentVersion": "0.11.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "sync": {
+            "pattern": "import { electrify } from 'electric-sql'",
+            "description": "ElectricSQL sync"
           }
         }
       }
@@ -1033,6 +1316,1694 @@
         "ecosystem": "huggingface",
         "currentVersion": "4.38.0",
         "packageManager": "pip"
+      },
+      "replicate": {
+        "ecosystem": "replicate",
+        "currentVersion": "0.25.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "run": {
+            "pattern": "import Replicate from 'replicate'",
+            "description": "Replicate client"
+          },
+          "streaming": {
+            "pattern": "for await (const event of prediction) {}",
+            "description": "Replicate streaming"
+          }
+        }
+      },
+      "togetherAI": {
+        "ecosystem": "together",
+        "currentVersion": "0.7.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import Together from 'together-ai'",
+            "description": "Together AI client"
+          }
+        }
+      },
+      "groq": {
+        "ecosystem": "groq",
+        "currentVersion": "0.3.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import Groq from 'groq-sdk'",
+            "description": "Groq SDK"
+          }
+        }
+      },
+      "fireworks": {
+        "ecosystem": "fireworks",
+        "currentVersion": "0.2.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import Fireworks from '@fireworks-ai/sdk'",
+            "description": "Fireworks AI SDK"
+          }
+        }
+      },
+      "ollama": {
+        "ecosystem": "ollama",
+        "currentVersion": "0.5.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "generate": {
+            "pattern": "import { Ollama } from 'ollama'",
+            "description": "Ollama client"
+          },
+          "chat": {
+            "pattern": "ollama.chat({ model: 'llama3', messages: [] })",
+            "description": "Ollama chat"
+          }
+        }
+      },
+      "instructor": {
+        "ecosystem": "instructor",
+        "currentVersion": "1.3.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import Instructor from '@instructor-ai/instructor'",
+            "description": "Instructor for structured outputs"
+          },
+          "patch": {
+            "pattern": "const client = Instructor({ client: openai })",
+            "description": "Patch OpenAI client"
+          }
+        }
+      },
+      "mastra": {
+        "ecosystem": "mastra",
+        "currentVersion": "0.1.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "agent": {
+            "pattern": "import { Agent } from '@mastra/core'",
+            "description": "Mastra AI agents"
+          }
+        }
+      }
+    },
+
+    "monorepo": {
+      "turborepo": {
+        "ecosystem": "turborepo",
+        "currentVersion": "2.0.0",
+        "packageManager": "npm",
+        "configFiles": ["turbo.json"],
+        "currentPatterns": {
+          "config": {
+            "pattern": "{ \"tasks\": { \"build\": { \"dependsOn\": [\"^build\"] } } }",
+            "description": "Turbo task configuration"
+          },
+          "remote": {
+            "pattern": "npx turbo login && npx turbo link",
+            "description": "Remote caching setup"
+          }
+        },
+        "deprecatedPatterns": {
+          "pipeline": {
+            "pattern": "\"pipeline\": {}",
+            "replacement": "\"tasks\": {}",
+            "severity": "error",
+            "deprecatedSince": "2024-03-01"
+          }
+        }
+      },
+      "nx": {
+        "ecosystem": "nx",
+        "currentVersion": "19.0.0",
+        "packageManager": "npm",
+        "configFiles": ["nx.json", "project.json"],
+        "currentPatterns": {
+          "generator": {
+            "pattern": "nx generate @nx/react:component",
+            "description": "Nx generators"
+          },
+          "affected": {
+            "pattern": "nx affected --target=build",
+            "description": "Affected commands"
+          }
+        }
+      },
+      "pnpmWorkspaces": {
+        "ecosystem": "pnpm",
+        "currentVersion": "9.0.0",
+        "configFiles": ["pnpm-workspace.yaml"],
+        "currentPatterns": {
+          "workspace": {
+            "pattern": "packages:\n  - 'packages/*'",
+            "description": "pnpm workspace config"
+          },
+          "filter": {
+            "pattern": "pnpm --filter @scope/pkg build",
+            "description": "pnpm filter commands"
+          }
+        }
+      },
+      "lerna": {
+        "ecosystem": "lerna",
+        "currentVersion": "8.1.0",
+        "packageManager": "npm",
+        "configFiles": ["lerna.json"],
+        "currentPatterns": {
+          "version": {
+            "pattern": "lerna version --conventional-commits",
+            "description": "Lerna versioning"
+          }
+        }
+      },
+      "moon": {
+        "ecosystem": "moon",
+        "currentVersion": "1.22.0",
+        "configFiles": [".moon/workspace.yml"],
+        "currentPatterns": {
+          "task": {
+            "pattern": "moon run project:task",
+            "description": "Moon task running"
+          }
+        }
+      }
+    },
+
+    "serverless": {
+      "inngest": {
+        "ecosystem": "inngest",
+        "currentVersion": "3.16.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "function": {
+            "pattern": "inngest.createFunction({ id: 'my-fn' }, { event: 'app/user.created' }, async ({ event, step }) => {})",
+            "description": "Inngest function definition"
+          },
+          "step": {
+            "pattern": "await step.run('step-name', async () => {})",
+            "description": "Inngest steps"
+          }
+        }
+      },
+      "triggerdev": {
+        "ecosystem": "trigger",
+        "currentVersion": "3.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "task": {
+            "pattern": "export const myTask = task({ id: 'my-task', run: async () => {} })",
+            "description": "Trigger.dev task"
+          }
+        }
+      },
+      "bullmq": {
+        "ecosystem": "bullmq",
+        "currentVersion": "5.4.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "queue": {
+            "pattern": "const queue = new Queue('name', { connection })",
+            "description": "BullMQ queue"
+          },
+          "worker": {
+            "pattern": "new Worker('name', async (job) => {}, { connection })",
+            "description": "BullMQ worker"
+          }
+        }
+      },
+      "temporal": {
+        "ecosystem": "temporal",
+        "currentVersion": "1.9.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "workflow": {
+            "pattern": "export async function myWorkflow(): Promise<void> {}",
+            "description": "Temporal workflow"
+          },
+          "activity": {
+            "pattern": "export async function myActivity(): Promise<string> {}",
+            "description": "Temporal activity"
+          }
+        }
+      },
+      "awsLambda": {
+        "ecosystem": "aws",
+        "currentVersion": "3.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "handler": {
+            "pattern": "export const handler: Handler = async (event, context) => {}",
+            "description": "Lambda handler"
+          },
+          "cdk": {
+            "pattern": "new NodejsFunction(this, 'fn', { entry: 'handler.ts' })",
+            "description": "CDK NodejsFunction"
+          }
+        }
+      },
+      "netlifyFunctions": {
+        "ecosystem": "netlify",
+        "currentVersion": "2.6.0",
+        "packageManager": "npm",
+        "configFiles": ["netlify.toml"],
+        "currentPatterns": {
+          "handler": {
+            "pattern": "export default async (req: Request, context: Context) => {}",
+            "description": "Netlify Functions v2"
+          }
+        },
+        "deprecatedPatterns": {
+          "v1": {
+            "pattern": "exports.handler = async (event, context) => {}",
+            "replacement": "export default async (req: Request, context: Context) => {}",
+            "severity": "warning",
+            "deprecatedSince": "2023-09-01"
+          }
+        }
+      }
+    },
+
+    "authentication": {
+      "clerk": {
+        "ecosystem": "clerk",
+        "currentVersion": "5.0.0",
+        "packageManager": "npm",
+        "configFiles": [".env.local"],
+        "currentPatterns": {
+          "middleware": {
+            "pattern": "import { clerkMiddleware } from '@clerk/nextjs/server'",
+            "description": "Use clerkMiddleware for Next.js App Router"
+          },
+          "auth": {
+            "pattern": "const { userId } = await auth()",
+            "description": "Use auth() helper in server components"
+          },
+          "components": {
+            "pattern": "<SignIn />, <SignUp />, <UserButton />",
+            "description": "Use pre-built Clerk components"
+          }
+        },
+        "deprecatedPatterns": {
+          "authMiddleware": {
+            "pattern": "import { authMiddleware } from '@clerk/nextjs'",
+            "replacement": "import { clerkMiddleware } from '@clerk/nextjs/server'",
+            "severity": "error",
+            "deprecatedSince": "2024-04-01",
+            "reason": "authMiddleware deprecated in Clerk 5.0"
+          },
+          "withClerkMiddleware": {
+            "pattern": "withClerkMiddleware()",
+            "replacement": "clerkMiddleware()",
+            "severity": "error",
+            "deprecatedSince": "2024-04-01"
+          }
+        }
+      },
+      "authjs": {
+        "ecosystem": "authjs",
+        "currentVersion": "5.0.0",
+        "packageManager": "npm",
+        "configFiles": ["auth.ts", "auth.config.ts"],
+        "currentPatterns": {
+          "auth": {
+            "pattern": "import { auth } from '@/auth'",
+            "description": "Use auth() function for session access"
+          },
+          "config": {
+            "pattern": "export const { handlers, auth, signIn, signOut } = NextAuth({ providers: [] })",
+            "description": "Auth.js 5 configuration pattern"
+          },
+          "middleware": {
+            "pattern": "export { auth as middleware } from '@/auth'",
+            "description": "Use auth as middleware export"
+          }
+        },
+        "deprecatedPatterns": {
+          "nextauth-v4": {
+            "pattern": "import NextAuth from 'next-auth'",
+            "replacement": "import NextAuth from 'next-auth' (v5 config)",
+            "severity": "warning",
+            "deprecatedSince": "2024-01-01",
+            "reason": "NextAuth v4 -> Auth.js v5 migration"
+          },
+          "getServerSession": {
+            "pattern": "getServerSession(authOptions)",
+            "replacement": "auth()",
+            "severity": "error",
+            "deprecatedSince": "2024-01-01"
+          }
+        }
+      },
+      "lucia": {
+        "ecosystem": "lucia",
+        "currentVersion": "3.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "session": {
+            "pattern": "const session = await lucia.createSession(userId, {})",
+            "description": "Create sessions with Lucia 3"
+          },
+          "validate": {
+            "pattern": "const { user, session } = await lucia.validateSession(sessionId)",
+            "description": "Validate sessions with destructuring"
+          }
+        },
+        "deprecatedPatterns": {
+          "lucia-v2": {
+            "pattern": "import { lucia } from 'lucia'",
+            "replacement": "import { Lucia } from 'lucia'",
+            "severity": "error",
+            "deprecatedSince": "2024-03-01"
+          }
+        }
+      },
+      "supabaseAuth": {
+        "ecosystem": "supabase",
+        "currentVersion": "2.40.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "createClient": {
+            "pattern": "const supabase = createClient(url, anonKey)",
+            "description": "Create Supabase client for auth"
+          },
+          "signIn": {
+            "pattern": "await supabase.auth.signInWithOAuth({ provider: 'github' })",
+            "description": "OAuth sign in with Supabase"
+          },
+          "ssr": {
+            "pattern": "import { createServerClient } from '@supabase/ssr'",
+            "description": "Use SSR helpers for server-side auth"
+          }
+        }
+      },
+      "firebaseAuth": {
+        "ecosystem": "firebase",
+        "currentVersion": "10.8.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "modular": {
+            "pattern": "import { getAuth, signInWithPopup } from 'firebase/auth'",
+            "description": "Use modular Firebase imports"
+          }
+        },
+        "deprecatedPatterns": {
+          "namespaced": {
+            "pattern": "firebase.auth()",
+            "replacement": "getAuth(app)",
+            "severity": "error",
+            "deprecatedSince": "2022-07-01",
+            "reason": "Namespaced API deprecated, use modular"
+          }
+        }
+      },
+      "passport": {
+        "ecosystem": "passport",
+        "currentVersion": "0.7.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "strategy": {
+            "pattern": "passport.use(new Strategy(options, verify))",
+            "description": "Use passport strategies"
+          }
+        }
+      },
+      "kinde": {
+        "ecosystem": "kinde",
+        "currentVersion": "2.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'",
+            "description": "Use Kinde server session"
+          }
+        }
+      },
+      "workos": {
+        "ecosystem": "workos",
+        "currentVersion": "4.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "sso": {
+            "pattern": "import { WorkOS } from '@workos-inc/node'",
+            "description": "WorkOS Node SDK for SSO"
+          }
+        }
+      },
+      "betterAuth": {
+        "ecosystem": "better-auth",
+        "currentVersion": "0.8.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "setup": {
+            "pattern": "import { betterAuth } from 'better-auth'",
+            "description": "Better Auth setup"
+          }
+        }
+      }
+    },
+
+    "cms": {
+      "sanity": {
+        "ecosystem": "sanity",
+        "currentVersion": "3.30.0",
+        "packageManager": "npm",
+        "configFiles": ["sanity.config.ts", "sanity.cli.ts"],
+        "currentPatterns": {
+          "studio": {
+            "pattern": "import { defineConfig } from 'sanity'",
+            "description": "Sanity Studio v3 configuration"
+          },
+          "groq": {
+            "pattern": "*[_type == \"post\"] { title, slug }",
+            "description": "GROQ query syntax"
+          },
+          "client": {
+            "pattern": "import { createClient } from '@sanity/client'",
+            "description": "Create Sanity client"
+          }
+        },
+        "deprecatedPatterns": {
+          "v2-studio": {
+            "pattern": "import createSchema from 'part:@sanity/base/schema-creator'",
+            "replacement": "import { defineType, defineField } from 'sanity'",
+            "severity": "error",
+            "deprecatedSince": "2022-12-01"
+          }
+        }
+      },
+      "contentful": {
+        "ecosystem": "contentful",
+        "currentVersion": "10.6.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import { createClient } from 'contentful'",
+            "description": "Create Contentful client"
+          }
+        }
+      },
+      "strapi": {
+        "ecosystem": "strapi",
+        "currentVersion": "5.0.0",
+        "packageManager": "npm",
+        "configFiles": ["config/server.ts", "config/database.ts"],
+        "currentPatterns": {
+          "v5": {
+            "pattern": "Document Service API",
+            "description": "Strapi 5 Document Service"
+          }
+        },
+        "deprecatedPatterns": {
+          "entityService": {
+            "pattern": "strapi.entityService",
+            "replacement": "strapi.documents",
+            "severity": "warning",
+            "deprecatedSince": "2024-07-01"
+          }
+        }
+      },
+      "payload": {
+        "ecosystem": "payload",
+        "currentVersion": "3.0.0",
+        "packageManager": "npm",
+        "configFiles": ["payload.config.ts"],
+        "currentPatterns": {
+          "config": {
+            "pattern": "import { buildConfig } from 'payload'",
+            "description": "Payload 3.0 config"
+          },
+          "collections": {
+            "pattern": "export const Posts: CollectionConfig = { slug: 'posts' }",
+            "description": "Define collections"
+          }
+        }
+      },
+      "keystonejs": {
+        "ecosystem": "keystonejs",
+        "currentVersion": "6.0.0",
+        "packageManager": "npm",
+        "configFiles": ["keystone.ts"],
+        "currentPatterns": {
+          "lists": {
+            "pattern": "import { list } from '@keystone-6/core'",
+            "description": "Define Keystone lists"
+          }
+        }
+      },
+      "ghost": {
+        "ecosystem": "ghost",
+        "currentVersion": "5.80.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "contentApi": {
+            "pattern": "import GhostContentAPI from '@tryghost/content-api'",
+            "description": "Ghost Content API"
+          }
+        }
+      },
+      "directus": {
+        "ecosystem": "directus",
+        "currentVersion": "10.10.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "sdk": {
+            "pattern": "import { createDirectus, rest } from '@directus/sdk'",
+            "description": "Directus SDK v11"
+          }
+        }
+      }
+    },
+
+    "payments": {
+      "stripe": {
+        "ecosystem": "stripe",
+        "currentVersion": "14.18.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import Stripe from 'stripe'",
+            "description": "Import Stripe Node SDK"
+          },
+          "elements": {
+            "pattern": "import { loadStripe } from '@stripe/stripe-js'",
+            "description": "Load Stripe.js"
+          },
+          "webhooks": {
+            "pattern": "stripe.webhooks.constructEvent(body, sig, secret)",
+            "description": "Verify Stripe webhooks"
+          },
+          "checkout": {
+            "pattern": "stripe.checkout.sessions.create()",
+            "description": "Create Checkout session"
+          }
+        },
+        "deprecatedPatterns": {
+          "legacyCheckout": {
+            "pattern": "stripe.charges.create()",
+            "replacement": "stripe.paymentIntents.create()",
+            "severity": "warning",
+            "deprecatedSince": "2019-09-01"
+          }
+        }
+      },
+      "paddle": {
+        "ecosystem": "paddle",
+        "currentVersion": "2.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "billing": {
+            "pattern": "import { Paddle } from '@paddle/paddle-js'",
+            "description": "Paddle.js v2"
+          }
+        }
+      },
+      "lemonsqueezy": {
+        "ecosystem": "lemonsqueezy",
+        "currentVersion": "2.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "sdk": {
+            "pattern": "import { lemonSqueezySetup } from '@lemonsqueezy/lemonsqueezy.js'",
+            "description": "LemonSqueezy JS SDK"
+          }
+        }
+      },
+      "paypal": {
+        "ecosystem": "paypal",
+        "currentVersion": "5.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import * as paypal from '@paypal/checkout-server-sdk'",
+            "description": "PayPal Server SDK"
+          }
+        }
+      }
+    },
+
+    "email": {
+      "resend": {
+        "ecosystem": "resend",
+        "currentVersion": "3.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "send": {
+            "pattern": "import { Resend } from 'resend'",
+            "description": "Resend email SDK"
+          },
+          "react": {
+            "pattern": "resend.emails.send({ react: <EmailTemplate /> })",
+            "description": "Send React Email components"
+          }
+        }
+      },
+      "reactEmail": {
+        "ecosystem": "react-email",
+        "currentVersion": "2.1.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "components": {
+            "pattern": "import { Html, Head, Body, Container } from '@react-email/components'",
+            "description": "React Email components"
+          }
+        }
+      },
+      "sendgrid": {
+        "ecosystem": "sendgrid",
+        "currentVersion": "8.1.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "mail": {
+            "pattern": "import sgMail from '@sendgrid/mail'",
+            "description": "SendGrid Mail SDK"
+          }
+        }
+      },
+      "postmark": {
+        "ecosystem": "postmark",
+        "currentVersion": "4.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import { ServerClient } from 'postmark'",
+            "description": "Postmark client"
+          }
+        }
+      },
+      "nodemailer": {
+        "ecosystem": "nodemailer",
+        "currentVersion": "6.9.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "transport": {
+            "pattern": "nodemailer.createTransport({ host, port, auth })",
+            "description": "Create transport"
+          }
+        }
+      },
+      "plunk": {
+        "ecosystem": "plunk",
+        "currentVersion": "2.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import Plunk from '@plunk/node'",
+            "description": "Plunk Node SDK"
+          }
+        }
+      },
+      "mailgun": {
+        "ecosystem": "mailgun",
+        "currentVersion": "10.2.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import Mailgun from 'mailgun.js'",
+            "description": "Mailgun.js SDK"
+          }
+        }
+      }
+    },
+
+    "analytics": {
+      "posthog": {
+        "ecosystem": "posthog",
+        "currentVersion": "3.1.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "init": {
+            "pattern": "import posthog from 'posthog-js'",
+            "description": "PostHog JS SDK"
+          },
+          "capture": {
+            "pattern": "posthog.capture('event', { property: value })",
+            "description": "Capture events"
+          },
+          "flags": {
+            "pattern": "posthog.isFeatureEnabled('flag-name')",
+            "description": "Feature flags"
+          }
+        }
+      },
+      "mixpanel": {
+        "ecosystem": "mixpanel",
+        "currentVersion": "2.50.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "track": {
+            "pattern": "mixpanel.track('Event Name', { property: value })",
+            "description": "Track events"
+          }
+        }
+      },
+      "plausible": {
+        "ecosystem": "plausible",
+        "currentVersion": "0.3.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "script": {
+            "pattern": "<script defer data-domain=\"example.com\" src=\"https://plausible.io/js/script.js\"></script>",
+            "description": "Plausible script tag"
+          }
+        }
+      },
+      "amplitude": {
+        "ecosystem": "amplitude",
+        "currentVersion": "2.4.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "init": {
+            "pattern": "import * as amplitude from '@amplitude/analytics-browser'",
+            "description": "Amplitude Browser SDK"
+          }
+        }
+      },
+      "vercelAnalytics": {
+        "ecosystem": "vercel-analytics",
+        "currentVersion": "1.2.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "component": {
+            "pattern": "import { Analytics } from '@vercel/analytics/react'",
+            "description": "Vercel Analytics component"
+          }
+        }
+      },
+      "googleAnalytics": {
+        "ecosystem": "google-analytics",
+        "currentVersion": "4.0.0",
+        "currentPatterns": {
+          "gtag": {
+            "pattern": "gtag('event', 'action', { event_category: 'category' })",
+            "description": "GA4 event tracking"
+          }
+        },
+        "deprecatedPatterns": {
+          "ua": {
+            "pattern": "ga('send', 'event')",
+            "replacement": "gtag('event', ...)",
+            "severity": "error",
+            "deprecatedSince": "2023-07-01",
+            "reason": "Universal Analytics deprecated"
+          }
+        }
+      },
+      "segment": {
+        "ecosystem": "segment",
+        "currentVersion": "2.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "analytics": {
+            "pattern": "import { AnalyticsBrowser } from '@segment/analytics-next'",
+            "description": "Segment Analytics.js 2.0"
+          }
+        }
+      }
+    },
+
+    "monitoring": {
+      "sentry": {
+        "ecosystem": "sentry",
+        "currentVersion": "8.0.0",
+        "packageManager": "npm",
+        "configFiles": ["sentry.client.config.ts", "sentry.server.config.ts", "sentry.edge.config.ts"],
+        "currentPatterns": {
+          "init": {
+            "pattern": "import * as Sentry from '@sentry/nextjs'",
+            "description": "Sentry Next.js SDK"
+          },
+          "capture": {
+            "pattern": "Sentry.captureException(error)",
+            "description": "Capture exceptions"
+          },
+          "errorBoundary": {
+            "pattern": "import { ErrorBoundary } from '@sentry/react'",
+            "description": "React Error Boundary"
+          }
+        },
+        "deprecatedPatterns": {
+          "v7-init": {
+            "pattern": "Sentry.init({ dsn, tracesSampleRate })",
+            "replacement": "Sentry.init({ dsn, tracesSampleRate, replaysSessionSampleRate })",
+            "severity": "warning",
+            "deprecatedSince": "2024-01-01"
+          }
+        }
+      },
+      "logrocket": {
+        "ecosystem": "logrocket",
+        "currentVersion": "8.1.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "init": {
+            "pattern": "LogRocket.init('app/id')",
+            "description": "Initialize LogRocket"
+          }
+        }
+      },
+      "datadog": {
+        "ecosystem": "datadog",
+        "currentVersion": "5.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "rum": {
+            "pattern": "import { datadogRum } from '@datadog/browser-rum'",
+            "description": "Datadog RUM"
+          },
+          "apm": {
+            "pattern": "import tracer from 'dd-trace'",
+            "description": "Datadog APM tracer"
+          }
+        }
+      },
+      "axiom": {
+        "ecosystem": "axiom",
+        "currentVersion": "1.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "nextjs": {
+            "pattern": "import { withAxiom } from 'next-axiom'",
+            "description": "Axiom Next.js integration"
+          }
+        }
+      },
+      "opentelemetry": {
+        "ecosystem": "opentelemetry",
+        "currentVersion": "1.22.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "sdk": {
+            "pattern": "import { NodeSDK } from '@opentelemetry/sdk-node'",
+            "description": "OpenTelemetry Node SDK"
+          },
+          "tracing": {
+            "pattern": "import { trace } from '@opentelemetry/api'",
+            "description": "OpenTelemetry tracing API"
+          }
+        }
+      },
+      "newRelic": {
+        "ecosystem": "newrelic",
+        "currentVersion": "11.10.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "browser": {
+            "pattern": "import { BrowserAgent } from '@newrelic/browser-agent'",
+            "description": "New Relic Browser Agent"
+          }
+        }
+      },
+      "honeycomb": {
+        "ecosystem": "honeycomb",
+        "currentVersion": "3.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "otel": {
+            "pattern": "import { HoneycombSDK } from '@honeycombio/opentelemetry-node'",
+            "description": "Honeycomb OpenTelemetry SDK"
+          }
+        }
+      },
+      "betterstack": {
+        "ecosystem": "betterstack",
+        "currentVersion": "0.4.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "logs": {
+            "pattern": "import { Logtail } from '@logtail/node'",
+            "description": "Better Stack (Logtail) logging"
+          }
+        }
+      }
+    },
+
+    "caching": {
+      "redis": {
+        "ecosystem": "redis",
+        "currentVersion": "4.6.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import { createClient } from 'redis'",
+            "description": "Redis Node client"
+          },
+          "ioredis": {
+            "pattern": "import Redis from 'ioredis'",
+            "description": "ioredis client"
+          }
+        }
+      },
+      "upstash": {
+        "ecosystem": "upstash",
+        "currentVersion": "1.28.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "redis": {
+            "pattern": "import { Redis } from '@upstash/redis'",
+            "description": "Upstash Redis"
+          },
+          "ratelimit": {
+            "pattern": "import { Ratelimit } from '@upstash/ratelimit'",
+            "description": "Upstash rate limiting"
+          }
+        }
+      },
+      "vercelKV": {
+        "ecosystem": "vercel-kv",
+        "currentVersion": "2.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "kv": {
+            "pattern": "import { kv } from '@vercel/kv'",
+            "description": "Vercel KV client"
+          }
+        }
+      },
+      "dragonfly": {
+        "ecosystem": "dragonfly",
+        "currentVersion": "1.0.0",
+        "description": "Redis-compatible in-memory store"
+      },
+      "memcached": {
+        "ecosystem": "memcached",
+        "currentVersion": "2.2.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "memjs": {
+            "pattern": "import memjs from 'memjs'",
+            "description": "Memcached client"
+          }
+        }
+      }
+    },
+
+    "search": {
+      "algolia": {
+        "ecosystem": "algolia",
+        "currentVersion": "5.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import { algoliasearch } from 'algoliasearch'",
+            "description": "Algolia v5 client"
+          },
+          "instantSearch": {
+            "pattern": "import { InstantSearch, SearchBox, Hits } from 'react-instantsearch'",
+            "description": "React InstantSearch"
+          }
+        },
+        "deprecatedPatterns": {
+          "v4-client": {
+            "pattern": "import algoliasearch from 'algoliasearch'",
+            "replacement": "import { algoliasearch } from 'algoliasearch'",
+            "severity": "warning",
+            "deprecatedSince": "2024-03-01"
+          }
+        }
+      },
+      "meilisearch": {
+        "ecosystem": "meilisearch",
+        "currentVersion": "0.38.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import { MeiliSearch } from 'meilisearch'",
+            "description": "Meilisearch client"
+          }
+        }
+      },
+      "typesense": {
+        "ecosystem": "typesense",
+        "currentVersion": "1.8.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import Typesense from 'typesense'",
+            "description": "Typesense client"
+          }
+        }
+      },
+      "elasticsearch": {
+        "ecosystem": "elasticsearch",
+        "currentVersion": "8.12.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import { Client } from '@elastic/elasticsearch'",
+            "description": "Elasticsearch client"
+          }
+        }
+      },
+      "orama": {
+        "ecosystem": "orama",
+        "currentVersion": "2.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "create": {
+            "pattern": "import { create, search, insert } from '@orama/orama'",
+            "description": "Orama in-browser search"
+          }
+        }
+      }
+    },
+
+    "realtime": {
+      "pusher": {
+        "ecosystem": "pusher",
+        "currentVersion": "8.4.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "server": {
+            "pattern": "import Pusher from 'pusher'",
+            "description": "Pusher server SDK"
+          },
+          "client": {
+            "pattern": "import PusherClient from 'pusher-js'",
+            "description": "Pusher client SDK"
+          }
+        }
+      },
+      "ably": {
+        "ecosystem": "ably",
+        "currentVersion": "2.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "realtime": {
+            "pattern": "import Ably from 'ably'",
+            "description": "Ably Realtime"
+          }
+        }
+      },
+      "socketio": {
+        "ecosystem": "socket.io",
+        "currentVersion": "4.7.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "server": {
+            "pattern": "import { Server } from 'socket.io'",
+            "description": "Socket.IO server"
+          },
+          "client": {
+            "pattern": "import { io } from 'socket.io-client'",
+            "description": "Socket.IO client"
+          }
+        }
+      },
+      "liveblocks": {
+        "ecosystem": "liveblocks",
+        "currentVersion": "2.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "room": {
+            "pattern": "import { useRoom, useOthers } from '@liveblocks/react'",
+            "description": "Liveblocks React hooks"
+          },
+          "presence": {
+            "pattern": "useMyPresence(), useOthers()",
+            "description": "Presence hooks"
+          }
+        }
+      },
+      "partykit": {
+        "ecosystem": "partykit",
+        "currentVersion": "0.0.1",
+        "packageManager": "npm",
+        "configFiles": ["partykit.json"],
+        "currentPatterns": {
+          "server": {
+            "pattern": "export default class Server implements Party.Server {}",
+            "description": "PartyKit server"
+          }
+        }
+      },
+      "supabaseRealtime": {
+        "ecosystem": "supabase",
+        "currentVersion": "2.40.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "channel": {
+            "pattern": "supabase.channel('room').on('postgres_changes', ...)",
+            "description": "Supabase Realtime channels"
+          }
+        }
+      },
+      "convex": {
+        "ecosystem": "convex",
+        "currentVersion": "1.10.0",
+        "packageManager": "npm",
+        "configFiles": ["convex/"],
+        "currentPatterns": {
+          "query": {
+            "pattern": "import { useQuery } from 'convex/react'",
+            "description": "Convex React query hook"
+          }
+        }
+      }
+    },
+
+    "edge": {
+      "cloudflareWorkers": {
+        "ecosystem": "cloudflare",
+        "currentVersion": "3.50.0",
+        "packageManager": "npm",
+        "configFiles": ["wrangler.toml"],
+        "currentPatterns": {
+          "handler": {
+            "pattern": "export default { async fetch(request, env, ctx) {} }",
+            "description": "Workers fetch handler"
+          },
+          "durableObjects": {
+            "pattern": "export class MyDurableObject implements DurableObject {}",
+            "description": "Durable Objects"
+          }
+        }
+      },
+      "vercelEdge": {
+        "ecosystem": "vercel",
+        "currentVersion": "latest",
+        "currentPatterns": {
+          "config": {
+            "pattern": "export const runtime = 'edge'",
+            "description": "Edge runtime config"
+          },
+          "middleware": {
+            "pattern": "import { NextResponse } from 'next/server'",
+            "description": "Edge middleware"
+          }
+        }
+      },
+      "denoDeploy": {
+        "ecosystem": "deno",
+        "currentVersion": "latest",
+        "currentPatterns": {
+          "serve": {
+            "pattern": "Deno.serve((req) => new Response('Hello'))",
+            "description": "Deno serve"
+          }
+        }
+      },
+      "fastlyCompute": {
+        "ecosystem": "fastly",
+        "currentVersion": "latest",
+        "currentPatterns": {
+          "handler": {
+            "pattern": "addEventListener('fetch', event => event.respondWith(handleRequest(event)))",
+            "description": "Fastly Compute handler"
+          }
+        }
+      },
+      "awsLambdaEdge": {
+        "ecosystem": "aws",
+        "currentVersion": "latest",
+        "currentPatterns": {
+          "handler": {
+            "pattern": "exports.handler = async (event, context) => {}",
+            "description": "Lambda@Edge handler"
+          }
+        }
+      },
+      "bunEdge": {
+        "ecosystem": "bun",
+        "currentVersion": "1.1.0",
+        "currentPatterns": {
+          "serve": {
+            "pattern": "Bun.serve({ fetch(req) { return new Response('Hello') } })",
+            "description": "Bun.serve edge pattern"
+          }
+        }
+      }
+    },
+
+    "storage": {
+      "awsS3": {
+        "ecosystem": "aws",
+        "currentVersion": "3.525.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'",
+            "description": "AWS SDK v3 S3"
+          }
+        },
+        "deprecatedPatterns": {
+          "v2-sdk": {
+            "pattern": "import AWS from 'aws-sdk'",
+            "replacement": "import { S3Client } from '@aws-sdk/client-s3'",
+            "severity": "error",
+            "deprecatedSince": "2023-01-01"
+          }
+        }
+      },
+      "cloudflareR2": {
+        "ecosystem": "cloudflare",
+        "currentVersion": "latest",
+        "currentPatterns": {
+          "binding": {
+            "pattern": "env.MY_BUCKET.put(key, value)",
+            "description": "R2 bucket binding"
+          }
+        }
+      },
+      "uploadthing": {
+        "ecosystem": "uploadthing",
+        "currentVersion": "7.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "router": {
+            "pattern": "import { createUploadthing } from 'uploadthing/next'",
+            "description": "UploadThing file router"
+          },
+          "component": {
+            "pattern": "<UploadButton endpoint='imageUploader' />",
+            "description": "UploadThing component"
+          }
+        }
+      },
+      "vercelBlob": {
+        "ecosystem": "vercel",
+        "currentVersion": "0.22.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "put": {
+            "pattern": "import { put } from '@vercel/blob'",
+            "description": "Vercel Blob upload"
+          }
+        }
+      },
+      "supabaseStorage": {
+        "ecosystem": "supabase",
+        "currentVersion": "2.40.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "upload": {
+            "pattern": "supabase.storage.from('bucket').upload('path', file)",
+            "description": "Supabase Storage upload"
+          }
+        }
+      },
+      "minio": {
+        "ecosystem": "minio",
+        "currentVersion": "8.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import * as Minio from 'minio'",
+            "description": "MinIO client"
+          }
+        }
+      },
+      "backblazeB2": {
+        "ecosystem": "backblaze",
+        "currentVersion": "1.8.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "client": {
+            "pattern": "import B2 from 'backblaze-b2'",
+            "description": "Backblaze B2 client"
+          }
+        }
+      }
+    },
+
+    "validation": {
+      "zod": {
+        "ecosystem": "zod",
+        "currentVersion": "3.22.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "schema": {
+            "pattern": "const userSchema = z.object({ name: z.string() })",
+            "description": "Define Zod schemas"
+          },
+          "infer": {
+            "pattern": "type User = z.infer<typeof userSchema>",
+            "description": "Infer types from schemas"
+          },
+          "parse": {
+            "pattern": "const data = schema.safeParse(input)",
+            "description": "Safe parsing"
+          }
+        }
+      },
+      "valibot": {
+        "ecosystem": "valibot",
+        "currentVersion": "0.30.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "schema": {
+            "pattern": "import * as v from 'valibot'",
+            "description": "Valibot imports"
+          },
+          "pipe": {
+            "pattern": "v.pipe(v.string(), v.minLength(1))",
+            "description": "Valibot pipe syntax"
+          }
+        }
+      },
+      "typebox": {
+        "ecosystem": "typebox",
+        "currentVersion": "0.32.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "schema": {
+            "pattern": "import { Type } from '@sinclair/typebox'",
+            "description": "TypeBox schema builder"
+          }
+        }
+      },
+      "arktype": {
+        "ecosystem": "arktype",
+        "currentVersion": "2.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "type": {
+            "pattern": "import { type } from 'arktype'",
+            "description": "ArkType definition"
+          }
+        }
+      },
+      "yup": {
+        "ecosystem": "yup",
+        "currentVersion": "1.4.0",
+        "packageManager": "npm",
+        "deprecatedPatterns": {
+          "preferZod": {
+            "pattern": "import * as yup from 'yup'",
+            "replacement": "import { z } from 'zod'",
+            "severity": "warning",
+            "deprecatedSince": "2023-01-01",
+            "reason": "Zod preferred for TypeScript projects"
+          }
+        }
+      },
+      "superstruct": {
+        "ecosystem": "superstruct",
+        "currentVersion": "1.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "struct": {
+            "pattern": "import { object, string } from 'superstruct'",
+            "description": "Superstruct schemas"
+          }
+        }
+      }
+    },
+
+    "forms": {
+      "reactHookForm": {
+        "ecosystem": "react-hook-form",
+        "currentVersion": "7.51.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "useForm": {
+            "pattern": "const { register, handleSubmit } = useForm()",
+            "description": "useForm hook"
+          },
+          "resolver": {
+            "pattern": "useForm({ resolver: zodResolver(schema) })",
+            "description": "Zod resolver integration"
+          },
+          "controller": {
+            "pattern": "<Controller name='field' control={control} render={...} />",
+            "description": "Controller for controlled inputs"
+          }
+        }
+      },
+      "tanstackForm": {
+        "ecosystem": "tanstack-form",
+        "currentVersion": "0.19.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "useForm": {
+            "pattern": "import { useForm } from '@tanstack/react-form'",
+            "description": "TanStack Form hook"
+          }
+        }
+      },
+      "formik": {
+        "ecosystem": "formik",
+        "currentVersion": "2.4.0",
+        "packageManager": "npm",
+        "deprecatedPatterns": {
+          "preferRHF": {
+            "pattern": "import { useFormik } from 'formik'",
+            "replacement": "import { useForm } from 'react-hook-form'",
+            "severity": "warning",
+            "deprecatedSince": "2023-01-01",
+            "reason": "React Hook Form preferred for performance"
+          }
+        }
+      },
+      "conform": {
+        "ecosystem": "conform",
+        "currentVersion": "1.1.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "useForm": {
+            "pattern": "import { useForm } from '@conform-to/react'",
+            "description": "Conform form hook"
+          },
+          "serverAction": {
+            "pattern": "parseWithZod(formData, { schema })",
+            "description": "Server action parsing"
+          }
+        }
+      }
+    },
+
+    "cli": {
+      "commander": {
+        "ecosystem": "commander",
+        "currentVersion": "12.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "program": {
+            "pattern": "import { program } from 'commander'",
+            "description": "Commander program"
+          },
+          "command": {
+            "pattern": "program.command('name').action(() => {})",
+            "description": "Define commands"
+          }
+        }
+      },
+      "yargs": {
+        "ecosystem": "yargs",
+        "currentVersion": "17.7.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "argv": {
+            "pattern": "import yargs from 'yargs'",
+            "description": "Yargs parser"
+          }
+        }
+      },
+      "inquirer": {
+        "ecosystem": "inquirer",
+        "currentVersion": "9.2.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "prompt": {
+            "pattern": "import inquirer from 'inquirer'",
+            "description": "Inquirer prompts"
+          }
+        }
+      },
+      "clack": {
+        "ecosystem": "clack",
+        "currentVersion": "0.7.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "prompts": {
+            "pattern": "import * as p from '@clack/prompts'",
+            "description": "Clack prompts"
+          },
+          "intro": {
+            "pattern": "p.intro('Welcome'); p.outro('Done!')",
+            "description": "Clack intro/outro"
+          }
+        }
+      },
+      "citty": {
+        "ecosystem": "citty",
+        "currentVersion": "0.1.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "defineCommand": {
+            "pattern": "import { defineCommand, runMain } from 'citty'",
+            "description": "Citty command definition"
+          }
+        }
+      },
+      "cac": {
+        "ecosystem": "cac",
+        "currentVersion": "6.7.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "cli": {
+            "pattern": "import cac from 'cac'",
+            "description": "CAC CLI builder"
+          }
+        }
+      },
+      "oclif": {
+        "ecosystem": "oclif",
+        "currentVersion": "4.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "command": {
+            "pattern": "import { Command } from '@oclif/core'",
+            "description": "Oclif Command class"
+          }
+        }
+      }
+    },
+
+    "documentation": {
+      "nextra": {
+        "ecosystem": "nextra",
+        "currentVersion": "3.0.0",
+        "packageManager": "npm",
+        "configFiles": ["next.config.mjs", "theme.config.tsx"],
+        "currentPatterns": {
+          "config": {
+            "pattern": "import nextra from 'nextra'",
+            "description": "Nextra Next.js plugin"
+          }
+        }
+      },
+      "docusaurus": {
+        "ecosystem": "docusaurus",
+        "currentVersion": "3.2.0",
+        "packageManager": "npm",
+        "configFiles": ["docusaurus.config.js"],
+        "currentPatterns": {
+          "config": {
+            "pattern": "module.exports = { title: 'My Site' }",
+            "description": "Docusaurus config"
+          }
+        }
+      },
+      "vitepress": {
+        "ecosystem": "vitepress",
+        "currentVersion": "1.1.0",
+        "packageManager": "npm",
+        "configFiles": [".vitepress/config.ts"],
+        "currentPatterns": {
+          "config": {
+            "pattern": "import { defineConfig } from 'vitepress'",
+            "description": "VitePress config"
+          }
+        }
+      },
+      "starlight": {
+        "ecosystem": "starlight",
+        "currentVersion": "0.21.0",
+        "packageManager": "npm",
+        "configFiles": ["astro.config.mjs"],
+        "currentPatterns": {
+          "integration": {
+            "pattern": "import starlight from '@astrojs/starlight'",
+            "description": "Starlight Astro integration"
+          }
+        }
+      },
+      "mintlify": {
+        "ecosystem": "mintlify",
+        "currentVersion": "latest",
+        "configFiles": ["mint.json"],
+        "currentPatterns": {
+          "config": {
+            "pattern": "{ \"name\": \"Docs\", \"navigation\": [] }",
+            "description": "Mintlify config"
+          }
+        }
+      },
+      "fumadocs": {
+        "ecosystem": "fumadocs",
+        "currentVersion": "13.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "source": {
+            "pattern": "import { createMDXSource } from 'fumadocs-mdx'",
+            "description": "Fumadocs MDX source"
+          }
+        }
+      }
+    },
+
+    "i18n": {
+      "nextIntl": {
+        "ecosystem": "next-intl",
+        "currentVersion": "3.11.0",
+        "packageManager": "npm",
+        "configFiles": ["next.config.mjs", "i18n.ts"],
+        "currentPatterns": {
+          "provider": {
+            "pattern": "import { NextIntlClientProvider } from 'next-intl'",
+            "description": "next-intl client provider"
+          },
+          "useTranslations": {
+            "pattern": "const t = useTranslations('namespace')",
+            "description": "Translation hook"
+          },
+          "getTranslations": {
+            "pattern": "const t = await getTranslations('namespace')",
+            "description": "Server translations"
+          }
+        }
+      },
+      "i18next": {
+        "ecosystem": "i18next",
+        "currentVersion": "23.10.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "init": {
+            "pattern": "import i18n from 'i18next'",
+            "description": "i18next core"
+          },
+          "react": {
+            "pattern": "import { useTranslation } from 'react-i18next'",
+            "description": "React i18next"
+          }
+        }
+      },
+      "formatjs": {
+        "ecosystem": "formatjs",
+        "currentVersion": "7.0.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "intlProvider": {
+            "pattern": "import { IntlProvider } from 'react-intl'",
+            "description": "React Intl provider"
+          },
+          "formatMessage": {
+            "pattern": "intl.formatMessage({ id: 'key' })",
+            "description": "Format messages"
+          }
+        }
+      },
+      "paraglide": {
+        "ecosystem": "paraglide",
+        "currentVersion": "1.5.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "messages": {
+            "pattern": "import * as m from '$lib/paraglide/messages'",
+            "description": "Paraglide messages"
+          }
+        }
+      },
+      "lingui": {
+        "ecosystem": "lingui",
+        "currentVersion": "4.7.0",
+        "packageManager": "npm",
+        "currentPatterns": {
+          "trans": {
+            "pattern": "import { Trans } from '@lingui/macro'",
+            "description": "Lingui Trans macro"
+          }
+        }
       }
     }
   },
